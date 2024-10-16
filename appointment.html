@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Registration Form</title>
+    <link rel="stylesheet" href="css/appointment.css">
+</head>
+<body>
+    <div class="background">
+        <h1>Donation Appointment Booking</h1>
+        <hr>
+        <p><b>Important Note:-</b> Appointment booked does not confirm your donation appointment.<br>
+            Appointment will only be confirmed by the chosen hospital. Donors are advised to check their accounts regularly.</p>
+        <hr>
+    </div>
+    <div class="wrapper">
+        <form action="process_appointment.php" method="POST">
+            <!-- Blood Type Selection -->
+            <div class="form-question">What is your blood type?</div>
+            <div class="form-group">
+                <div class="form-opt">
+                    <div><input type="radio" name="bloodType" value="A+" required> A+</div>
+                    <div><input type="radio" name="bloodType" value="A-"> A-</div>
+                    <div><input type="radio" name="bloodType" value="B+"> B+</div>
+                    <div><input type="radio" name="bloodType" value="B-"> B-</div>
+                    <div><input type="radio" name="bloodType" value="AB+"> AB+</div>
+                    <div><input type="radio" name="bloodType" value="AB-"> AB-</div>
+                    <div><input type="radio" name="bloodType" value="O+"> O+</div>
+                    <div><input type="radio" name="bloodType" value="O-"> O-</div>
+                </div>
+            </div>
+
+            <!-- Pin Code Input -->
+            <div class="form-question">Pin Code:</div>
+            <div class="form-data">
+                <input type="text" id="pinCode" name="pinCode" pattern="[0-9]{6}" placeholder="Pin code" required>
+            </div>
+
+            <!-- Date Selection -->
+            <div class="form-question">Select date:</div>
+            <div class="form-data">
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Hospital Selection based on Pin Code -->
+            <div class="form-question">Select Hospital/Donation Center:</div>
+            <div class="form-data">
+                <select id="hospital" name="hospital" required>
+                    <option value="">Select</option>
+                </select>
+            </div>
+
+            <!-- Availability Confirmation -->
+            <div class="form-data">
+                <input type="checkbox" name="availability" required>Available anytime 15 days prior to chosen date<br>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="btn">
+                <button type="submit">Book Appointment</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript to dynamically fetch hospitals based on pin code -->
+    <script>
+        document.getElementById('pinCode').addEventListener('change', function() {
+            var pinCode = this.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'get_hospitals.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    document.getElementById('hospital').innerHTML = this.responseText;
+                }
+            };
+            xhr.send('pinCode=' + pinCode);
+        });
+    </script>
+</body>
+</html>
