@@ -50,7 +50,7 @@ if (isset($_SESSION['hid'])) {
        <div class="tab-pane container active" id="hospitals">
         <form action="file/hospitalLogin.php" class="login-form" method="post">
           <label class="text-muted font-weight-bold" class="text-muted font-weight-bold">Hospital Id</label>
-          <input type="number" name="hphone" placeholder="Unique ID" class="form-control mb-4">
+          <input type="number" name="hid" placeholder="Unique ID" class="form-control mb-4">
           <label class="text-muted font-weight-bold" class="text-muted font-weight-bold">Hospital Password</label>
           <input type="password" name="hpassword" placeholder="Hospital Password" class="form-control mb-4">
           <input type="submit" name="hlogin" value="Login" class="btn btn-primary btn-block mb-4">
@@ -67,9 +67,10 @@ if (isset($_SESSION['hid'])) {
           <input type="submit" name="rlogin" value="Login" class="btn btn-primary btn-block mb-4">
         </form>
       </div> 
+      --->
 
     </div>
-    <a href="register.php" class="text-center mb-4" title="Click here"></a> --->
+    <a href="mailto:hibahkhatkhatay@gmail.com" class="text-center mb-4" title="Hospital? Get your ID here."></a> 
 </div>
 </div>
 </div>
