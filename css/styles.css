@@ -1,11 +1,56 @@
-*{ margin:0; padding:0; box-sizing:border-box; }
+/* Reset margin, padding, and box-sizing for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
- .carousel-inner img {
-    width: 100%;
-    height:90vh;
-  }
+/* Carousel images - responsive setup */
+.carousel-inner img {
+  width: 100%; /* Ensures the image takes up the full width of its container */
+  height: auto; /* Keeps aspect ratio consistent */
+  max-height: 45vh; /* Limits maximum height, adjust as needed */
+}
 
-  .aboutimg{
-    width:100%;
-    height:250px!important;
-  }
+/* Optional: Control image width inside carousel by wrapping in a container */
+.image-wrapper {
+  width: 80%; /* Set percentage width if you want images smaller within the carousel */
+  margin: 0 auto; /* Centers the image wrapper in carousel */
+}
+
+/* "About" section image */
+.aboutimg {
+  width: 50%; /* Adjust to your preference */
+  height: auto; /* Ensures aspect ratio consistency */
+  max-height: 125px; /* Sets a limit for height, use !important if necessary */
+}
+
+/* Make the "about" image responsive */
+.aboutimg.img-fluid {
+  max-width: 100%; /* Keeps image within container width */
+  height: auto; /* Allows height to adjust with width */
+}
+
+/* Carousel controls for better usability on different screen sizes */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Add slight background color for visibility */
+  border-radius: 50%; /* Optional, for rounded look */
+  width: 30px;
+  height: 30px;
+}
+
+/* General styling adjustments (optional) */
+body {
+  font-family: Arial, sans-serif;
+}
+
+section h2 {
+  font-size: 1.5em; /* Adjust heading size */
+}
+
+section p {
+  font-size: 1em; /* Adjust paragraph font size */
+  line-height: 1.6;
+}
+
